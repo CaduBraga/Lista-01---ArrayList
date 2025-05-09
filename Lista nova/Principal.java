@@ -129,7 +129,83 @@ public class Principal {
 
 					break;
 				case 3:
+					System.out.println("De qual lista você deseja remover um item?");
+					System.out.println("1 - Telefone Celular");
+					System.out.println("2 - TV");
+					System.out.println("3 - Casa");
+					System.out.println("4 - Aluno");
+					System.out.println("5 - Livro");
+					System.out.println("6 - Animal de Estimação");
+					System.out.println("7 - Bicicleta");
+					System.out.println("8 - Filme");
+					System.out.println("9 - Música");
+					System.out.println("10 - Jogo de Videogame");
+					System.out.println("11 - Bolsa de Valores");
+					System.out.print("> ");
+					int removerOpcao = scanner.nextInt();
+					scanner.nextLine();
 
+					List<?> listaSelecionada = null;
+
+					switch (removerOpcao) {
+						case 1:
+							listaSelecionada = telefoneCelular;
+							break;
+						case 2:
+							listaSelecionada = televisao;
+							break;
+						case 3:
+							listaSelecionada = casa;
+							break;
+						case 4:
+							listaSelecionada = aluno;
+							break;
+						case 5:
+							listaSelecionada = livro;
+							break;
+						case 6:
+							listaSelecionada = animal;
+							break;
+						case 7:
+							listaSelecionada = bicicleta;
+							break;
+						case 8:
+							listaSelecionada = filme;
+							break;
+						case 9:
+							listaSelecionada = musica;
+							break;
+						case 10:
+							listaSelecionada = jogo;
+							break;
+						case 11:
+							listaSelecionada = bolsa;
+							break;
+						default:
+							System.out.println("Opção inválida.");
+							break;
+					}
+
+					if (listaSelecionada != null && !listaSelecionada.isEmpty()) {
+						System.out.println("Itens disponíveis:");
+						for (int i = 0; i < listaSelecionada.size(); i++) {
+							System.out.println((i + 1) + " - " + listaSelecionada.get(i).toString());
+						}
+
+						System.out.print("Digite o número do item que deseja remover: ");
+						int indice = scanner.nextInt() - 1;
+						scanner.nextLine();
+
+						if (indice >= 0 && indice < listaSelecionada.size()) {
+							listaSelecionada.remove(indice);
+							System.out.println("Item removido com sucesso!");
+						} else {
+							System.out.println("Índice inválido.");
+						}
+					} else if (listaSelecionada != null) {
+						System.out.println("A lista está vazia.");
+					}
+					break;
 				case 4:
 					System.out.println("Encerrando o programa...");
 					try {
